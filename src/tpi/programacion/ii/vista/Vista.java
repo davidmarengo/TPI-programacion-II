@@ -38,6 +38,8 @@ public class Vista {
         return scanner.nextLine();
     }
     
-    
+    public void mostrarMensaje(String mensaje){
+        System.out.println(mensaje);
+    }
 
 }
