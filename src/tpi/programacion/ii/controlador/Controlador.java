@@ -1,6 +1,11 @@
 
 package tpi.programacion.ii.controlador;
 
+import java.util.ArrayList;
+import java.util.List;
+import tpi.programacion.ii.modelo.Equipo;
+import tpi.programacion.ii.modelo.Persona.Arbitro;
+import tpi.programacion.ii.modelo.Persona.Jugador;
 import tpi.programacion.ii.vista.Vista;
 
 
@@ -9,6 +14,9 @@ public class Controlador {
 
     public Controlador() {
     }
+    
+    List<Jugador>jugadores = new ArrayList<>();
+    List<Equipo>Equipos = new ArrayList<>();
     
     Vista vista = new Vista();
 
@@ -47,7 +55,7 @@ public class Controlador {
 
             switch (menu) {
                 case 1:
-                    generarCampeoonato();
+                    generarCampeonato();
                     break;
                 case 2:
                     generarFecha();
@@ -96,6 +104,9 @@ public class Controlador {
                 case 2:
                     mostrarEquipos();
                     break;
+                case 3:
+                    mostrarJugadores();
+                    break;
                 case 0:
                     vista.mostrarMensaje("Volviendo al menú principal...");
                     break;
@@ -105,8 +116,8 @@ public class Controlador {
         } while (opcion != 0);
     }
 
-    // Métodos simulados para cargar datos
-    private void generarCampeoonato() {
+    // METODOS PARA CARGAR DATOS
+    private void generarCampeonato() {
     }
     
     private void generarFecha() {
@@ -119,24 +130,60 @@ public class Controlador {
     }
     
     private void generarJugador() {
+        String nombre = vista.pedirDato("Ingrese el nombre");
+        String apellido = vista.pedirDato("Ingrese el apellido");
+        String direccion = vista.pedirDato("Ingrese la direccion. Formato calle y numero");
+        int DNI = vista.pedirNumero("Ingrese el D.N.I.");
+        String fechaNacimiento = vista.pedirDato("Ingrese la fecha de nacimiento. Formato dia, mes y año");
+        int matricula = vista.pedirNumero("Ingrese el numero de matricula");
+        jugadores.add(new Jugador(nombre,apellido,direccion,DNI,fechaNacimiento,matricula));
     }
     
     private void generarDirectorTecnico() {
+        String nombre = vista.pedirDato("Ingrese el nombre");
+        String apellido = vista.pedirDato("Ingrese el apellido");
+        String direccion = vista.pedirDato("Ingrese la direccion. Formato calle y numero");
+        int DNI = vista.pedirNumero("Ingrese el D.N.I.");
+        String fechaNacimiento = vista.pedirDato("Ingrese la fecha de nacimiento. Formato dia, mes y año");
     }
     
     private void generarEntrenadorFisico() {
+        String nombre = vista.pedirDato("Ingrese el nombre");
+        String apellido = vista.pedirDato("Ingrese el apellido");
+        String direccion = vista.pedirDato("Ingrese la direccion. Formato calle y numero");
+        int DNI = vista.pedirNumero("Ingrese el D.N.I.");
+        String fechaNacimiento = vista.pedirDato("Ingrese la fecha de nacimiento. Formato dia, mes y año");
     }
     
     private void generarMedico() {
+        String nombre = vista.pedirDato("Ingrese el nombre");
+        String apellido = vista.pedirDato("Ingrese el apellido");
+        String direccion = vista.pedirDato("Ingrese la direccion. Formato calle y numero");
+        int DNI = vista.pedirNumero("Ingrese el D.N.I.");
+        String fechaNacimiento = vista.pedirDato("Ingrese la fecha de nacimiento. Formato dia, mes y año");
     }
     
     private void generarArbitro() {
+        String nombre = vista.pedirDato("Ingrese el nombre");
+        String apellido = vista.pedirDato("Ingrese el apellido");
+        String direccion = vista.pedirDato("Ingrese la direccion. Formato calle y numero");
+        int DNI = vista.pedirNumero("Ingrese el D.N.I.");
+        String fechaNacimiento = vista.pedirDato("Ingrese la fecha de nacimiento. Formato dia, mes y año");
+        
+        new Arbitro();
     }
-
+    
+    
+    //METODOS PARA MOSTRAR INFORMACION
     private void mostrarCampeonato() {
     }
 
     private void mostrarEquipos() {
+        vista.mostrarLista(Equipos);
+    }
+    
+    private void mostrarJugadores() {
+        vista.mostrarLista(jugadores);
     }
 
    }

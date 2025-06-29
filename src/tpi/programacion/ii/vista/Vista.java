@@ -1,6 +1,7 @@
 
 package tpi.programacion.ii.vista;
 
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -52,5 +53,12 @@ public class Vista {
         System.out.println("Opcion 1: Mostrar informacion del campeonato");
         System.out.println("Opcion 2: Mostrar informacion de equipos");
     }
-
+    
+    public void mostrarLista(List<?> lista) {
+    for (Object item : lista) {
+        System.out.println(item);
+    }
 }
+    }
+
+
